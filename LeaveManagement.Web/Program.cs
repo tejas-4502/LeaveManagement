@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using LeaveManagement.Web;
 using LeaveManagement.Web.Services;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -36,8 +37,31 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+
+
+
+
+
+/*void ConfigureServices(IServiceCollection services)
+{
+services.AddCors(options =>
+{
+options.AddPolicy("AllowReactFrontend", builder =>
+{
+builder.WithOrigins("http://frontend-domain:port")
+.AllowAnyHeader()
+.AllowAnyMethod();
+});
+});
+}*/
+
+
+
+
+
+
+    // Configure the HTTP request pipeline.
+    if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
 }
@@ -52,6 +76,15 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+
+
+
+
+
+
+
+
 
 app.UseAuthentication();
 app.UseAuthorization();
